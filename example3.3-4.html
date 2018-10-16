@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>微格式time</title>
+</head>
+<body>
+	<!-- 编码时引擎读到的部分在datetime属性里，而元素的开始标记与结束标记中间的部分是显示在网页上的 -->
+	<time datetime="2018-09-30">2018年9月30日</time>
+	<time datetime="2018-09-30">9月30日</time>
+	<time datetime="2018-09-30">我的生日</time>
+	<time datetime="2018-09-30T20:00">我生日的晚上8点</time>
+	<!-- datatime属性中日期和时间之间要用T字母分隔，“T”表示时间 -->
+	<time datetime="2018-09-30T20Z">我生日的晚上8点</time>
+	<!-- Z字母表示给机器编码时使用UTC标准时间 -->
+	<time datetime="2018-09-30T20:00+09:00">我生日的晚上8点的美国时间</time>
+	<!-- +09:00时差，表示向机器编码另一地区时间，如果是编码本地时间，则不需要添加时差 -->
+</body>
+</html>
