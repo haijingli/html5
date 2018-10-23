@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form 练习-新增的input属性</title>
+</head>
+<body>
+	<form action="" method="get" autocomplete="on"/>
+		<h1>HTML5自动完成功能示例</h1>
+		姓名：<input type="text" name="name1" required="required" /><br/>
+		职业：<input type="text" name="career1"/><br/>
+		电子邮件地址：<input type="email" name="email1" autocomplete="off"><br/>
+
+		你最喜欢的城市：
+		<input type="text" id="city" name="city" list="cityList">
+		<datalist id="cityList" style="display: none;">
+			<option value="BeiJing">BeiJing</option>
+			<option value="QingDao">QingDao</option>
+			<option value="QingZhou">QingZhou</option>
+			<option value="QingHai">QingHai</option>
+		</datalist>
+		<br>
+		请选择要上传的文件:<input type="file" name="img" multiple="multiple"/><br>
+		请输入邮政编码：<input type="text" name="zip_code"  pattern="[0-9]{6}" title="请输入6位数的邮政编码" /><br>
+		请输入邮政编码：<input type="text" name="zip_code"  pattern="[0-9]{6}" placeholder="请输入6位数的邮政编码" /><br>
+		<input type="submit" name="提交信息"/>
+	</form>
+</body>
+</html>
