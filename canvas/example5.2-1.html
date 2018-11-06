@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas 练习</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="200" height="100"  style="border: 1px solid;"></canvas>
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var context = c.getContext("2d");
+		/*context.moveTo(0,0);
+		context.lineTo(200,100);
+		context.stroke();*/
+
+		context.fillStyle="#4638C0";
+		context.fillRect(0,0,200,100);
+		context.strokeStyle="#FFFFFF";
+		context.strokeRect(0,0,100,50);
+	</script>
+</body>
+</html>
