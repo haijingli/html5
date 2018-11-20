@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas图形</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="300" height="150" style="border: 1px solid"></canvas>
+	<script type="text/javascript">
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		/*ctx.fillStyle="#311EBD";
+		ctx.beginPath();
+		ctx.arc(150,75,50,0,Math.PI*2);
+		ctx.closePath();
+		ctx.fill();*/
+		for (var i = 0; i < 15; i++) {
+			ctx.strokeStyle="#311EBD";
+			ctx.beginPath();
+			ctx.arc(0,150,i*10,0,Math.PI*3/2,ture);
+			ctx.stroke();
+		}
+
+	</script>
+</body>
+</html>
