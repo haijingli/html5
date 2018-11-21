@@ -1,0 +1,49 @@
+.body{
+	background-color: #FFF;
+}
+
+a{
+	text-decoration: none;
+}
+
+video{
+	height: 100%;
+	margin: 0 auto;
+
+}
+
+.player{
+	width: 720px;
+	height: 360px;
+	background-color: #000;
+	position: relative;
+}
+
+.controls{
+	width: 720px;
+	height: 40px;
+	background-color: #1C192C;
+	position: absolute;
+	left: 10px;
+	bottom: 5px;
+	z-index: 100;
+	border-radius: 4px;
+}
+
+.controls .start{
+	float: left;
+	width: 20px;
+	height: 20px;
+	color:#fff;
+	margin-top:11px;
+	margin-left:11px;
+}
+
+.controls .expend{
+	float: right;
+	width: 20px;
+	height: 20px;
+	color:#fff;
+	margin-top:11px;
+	margin-left:11px;
+}
