@@ -1,9 +1,19 @@
 .body{
+	padding: 0;
+	margin: 0;
 	background-color: #FFF;
 }
 
 a{
 	text-decoration: none;
+}
+
+.player{
+	width: 720px;
+	height: 360px;
+	margin: 0 auto;
+	background-color: #000;
+	position: relative;
 }
 
 video{
@@ -12,19 +22,12 @@ video{
 
 }
 
-.player{
-	width: 720px;
-	height: 360px;
-	background-color: #000;
-	position: relative;
-}
-
 .controls{
 	width: 720px;
 	height: 40px;
 	background-color: #1C192C;
 	position: absolute;
-	left: 10px;
+	left: 0px;
 	bottom: 5px;
 	z-index: 100;
 	border-radius: 4px;
@@ -35,8 +38,9 @@ video{
 	width: 20px;
 	height: 20px;
 	color:#fff;
-	margin-top:11px;
-	margin-left:11px;
+	position: absolute;
+	top:11px;
+	left:11px;
 }
 
 .controls .expend{
@@ -44,6 +48,37 @@ video{
 	width: 20px;
 	height: 20px;
 	color:#fff;
-	margin-top:11px;
-	margin-left:11px;
+	position: absolute;
+	top:11px;
+	right:11px;
+}
+
+.progress{
+	width: 500px;
+	height: 10px;
+	position: relative;
+	top:15px;
+	left: 35px;
+}
+
+.progress .line{
+	width: 500px;
+	height: 10px;
+	background-color:#F7F5F5;
+	opacity: 0.5;
+	border-radius: 4px;
+	position: absolute;
+}
+
+.progress .bar{
+	width: 10px;
+	height: 10px;
+	background-color: #fff;
+	border-radius: 4px;
+	position: absolute;
+}
+.times{
+	position: absolute;
+	right: 38px;
+	color: #fff;
 }
