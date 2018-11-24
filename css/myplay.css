@@ -24,7 +24,7 @@ a{
 
 video{
 	height: 100%;
-	margin: 0 auto;
+	margin: 0 5% 0 5%;
 
 }
 
@@ -34,12 +34,12 @@ video{
 	background-color: #1C192C;
 	position: absolute;
 	left: 0px;
-	bottom: 5px;
+	bottom: 0px;
 	z-index: 100;
 	border-radius: 4px;
 }
 
-.controls .start{
+.controls .switch{
 	float: left;
 	width: 20px;
 	height: 20px;
@@ -70,17 +70,21 @@ video{
 }
 
 .progress .line{
-	width: 0px;
-	height: 10px;
+	width: 0;
+	height: 100%;
 	background-color:#F7F5F5;
-	opacity: 0.5;
+	left: 0;
+	top: 0;
 	position: absolute;
 }
 
 .progress .bar{
-	width: 0px;
-	height: 0px;
+	width: 100%;
+	height: 100%;
 	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
 }
 .times{
 	position: absolute;
