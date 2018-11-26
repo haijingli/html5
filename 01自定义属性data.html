@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5 自定义属性 data</title>
+</head>
+<body>
+	<div type="text" id="user" data-name="ZhangSan" data-age="28" data-sex="male" data-user-name="ZhangSan001">
+	</div>
+	<script type="text/javascript">
+		//设置自定义属性的方式 data-xxx
+		//获取自定义属性的集合对象 DOMStringMap对象
+		var user =	document.querySelector('#user').dataset;
+		//使用 集合对象.xxx 或 集合对["xxx"]
+		console.log(user.name + " " + user["age"] + " " + user.sex + " " + user.userName);
+
+		//向集合中添加属性 
+		user.id = "u001";//data-id = "u001"
+		user.score = "90";//data-score = "90"
+
+	</script>
+</body>
+</html>
