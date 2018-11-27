@@ -3,14 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>自定义属性例子-Tab页导航</title>
+	<style type="text/css">
+		body {
+	      margin: 0;
+	      padding: 0;
+	      background-color: #F7F7F7;
+	    }
+		
+		.tabs{
+			width: 400px;
+			background-color: #FFF;
+			border: 1px solid  #93B9E1;
+			margin:50px auto;
+			box-sizing: border-box;
+		}
+
+		.tabs nav{
+			line-height: 30px;
+			text-align: center;
+			background-color: #93B9E1;
+			display: flex;
+		}
+
+		nav a{
+			display: block;
+			width:100px;
+			border-right: 1px solid #FFF;
+      		color: #000;
+			text-decoration: none;
+		}
+
+		nav a.active {
+	      background-color: #269DC1;
+	    }
+
+		nav a:last-child {
+	      border-right: 0 none;
+	    }
+	</style>
 </head>
 <body>
-	<div>
+	<div class="tabs">
 		<nav>
-			<a href="javascript:void(0);" class="tab" data-const="myTab1">myTab1</a>
-			<a href="javascript:void(0);" class="tab" data-const="myTab2">myTab2</a>
-			<a href="javascript:void(0);" class="tab" data-const="myTab3">myTab3</a>
-			<a href="javascript:void(0);" class="tab" data-const="myTab4">myTab4</a>
+			<a href="javascript:void(0);"  data-const="myTab1">myTab1</a>
+			<a href="javascript:void(0);"  data-const="myTab2">myTab2</a>
+			<a href="javascript:void(0);"  data-const="myTab3">myTab3</a>
+			<a href="javascript:void(0);"  data-const="myTab4">myTab4</a>
 		</nav>
 		<section class="const" id="myTab1">
 			<ol>
