@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>file</title>
+</head>
+<body>
+	<input type="file" id="styleFile" />点我上传css文件<br/>
+	<input type="file" id="jsFile" />点我上传js文件<br/>
+	<input type="file" id="imageFile"  accept="image/*"/>点我上传图片<br/>
+	<input type="file" id="videoFile" />点我上传视频<br/>
+	<div id="result"></div>
+    <script type="text/javascript">
+    	//获取上传文件对象
+		var f1 = document.querySelector('#styleFile');
+		//为文件上传对象添加onchange事件，一旦发生文件上传操作就触发
+		f1.onchange = function(){
+			//通过this.files获取上传的文件对象，取下标为0的file对象
+			var fc1 = this.files[0];
+			//创建读取文件对象
+			var fReader = new FileReader();
+			//1.按字符读取文件内容，结果用字符串形式表示
+			fReader.readAsText(fc1);
+			//成功读取文件后的加载事件
+			fReader.onload = function(){
+				//创建style样式标签
+				var style = document.createElement("style");
+				//读取结果存放在result中
+				style.innerHTML = fReader.result;
+				document.querySelector('head').append(style);
+			};
+		};
+
+		var f2 = document.querySelector('#jsFile');
+		f2.onchange = function(){
+			var fl2 = this.files[0];
+			var reader = new FileReader();
+			//2.按字节读取文件内容，结果为文件的二进制串
+			reader.readAsBinaryString(fl2);
+			//3.按字节读取文件内容，结果用ArrayBuffer对象表示,读取blob对象
+			//reader.readAsArrayBuffer(fl2);
+			reader.onload = function(){
+				//创建style样式标签
+				var script = document.createElement("script");
+				//读取结果存放在result中
+				script.innerHTML = reader.result;
+				document.querySelector('body').append(script);
+				//console.log(reader.result);
+				//document.querySelector('#result').innerHTML = reader.result;
+			}
+		}
+
+		var f3 = document.querySelector('#imageFile');
+		f3.onchange = function(){
+			var fl3 = this.files[0];
+			var reader = new FileReader();
+			//读取文件内容，结果用data:url的字符串形式表示,readAsDataURL会将文件内容进行base64编码后输出
+			reader.readAsDataURL(fl3);
+			reader.onload = function(){
+				console.log(reader.result);
+				document.querySelector('#result').innerHTML='<img src="'+this.result+'" />' ;
+			}
+		}
+
+		var f4 = document.querySelector('#videoFile');
+		f4.onchange = function(){
+			var fl4 = this.files[0];
+			var reader = new FileReader();
+			//读取文件内容，结果用data:url的字符串形式表示,readAsDataURL会将文件内容进行base64编码后输出
+			reader.readAsDataURL(fl4);
+			reader.onload = function(){
+				console.log(reader.result);
+				document.querySelector('#result').innerHTML='<video src="'+this.result+'" controls/>' ;
+			}
+		}
+    </script>
+</body>
+</html>
