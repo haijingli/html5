@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网络状态检测</title>
+	<script type="text/javascript">
+		var state = window.navigator.online;
+		if(state){
+			alert("联网状态");
+		}else{
+			alert("脱机状态");
+		}
+
+		//文档状态检测
+		//文档由离线变为在线时触发，即网络状态由未联网到联网时触发
+		window.ononline = function(){
+			alert("在线");
+		}
+		//文档由在线状态变为离线时触发，即断网时触发
+		window.onoffline = function(){
+			alert("离线")
+		}
+	</script>
+</head>
+<body>
+</body>
+</html>
