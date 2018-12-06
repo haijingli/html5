@@ -4,14 +4,21 @@
 	<meta charset="UTF-8">
 	<title>地理信息定位</title>
 </head>
-<script type="text/javascript">
-	var content = document.querySelector('#content');
+
+<body>
+	<div id="demo"></div>
+	<button onclick="getLocation()">点我获取位置信息</button>
+	<button onclick="showPosition()">点我获取位置1</button>
+	<script type="text/javascript">
+	var content = document.querySelector('#demo');
 	function getLocation(){
 		/**
 		* 第一个参数：定位成功后执行的函数
 		* 第二个参数：获取用户位置失败时执行的函数，用于错误处理
+		* 
 		*/
 		window.navigator.geolocation.getCurrentPosition(function(position){
+			//回调函数传入一个 position 对象，就是获取到的位置信息。
 			//十进制数的纬度数据
 			var lat = position.coords.latitude;
 			//十进制数的经度数据
@@ -19,9 +26,11 @@
 			content.innerHTML = 'Latitude:'+lat + ' Longitude :'+long;
 
 		},function(error){
+			//容错处理的回调函数会传入一个 PositionError 对象作为参数 即error
 			//console.log(msg);
 			//PositionError {code: 1, message: "User denied Geolocation"}
 			/*
+				UNKNOWN_ERROR:0
 				PERMISSION_DENIED: 1
 				POSITION_UNAVAILABLE: 2
 				TIMEOUT: 3
@@ -29,26 +38,73 @@
 			switch(error.code){
 			    case error.PERMISSION_DENIED:
 			      //用户不允许地理定位
-			      content.innerHTML="User denied the request for Geolocation."
+			      content.innerHTML="User denied the request for Geolocation.";
 			      break;
 			    case error.POSITION_UNAVAILABLE:
 			      //无法获取当前位置
-			      content.innerHTML="Location information is unavailable."
+			      content.innerHTML="Location information is unavailable.";
 			      break;
 			    case error.TIMEOUT:
 			      //操作超时
-			      content.innerHTML="The request to get user location timed out."
+			      content.innerHTML="The request to get user location timed out.";
 			      break;
 			    case error.UNKNOWN_ERROR:
 			      //未知错误
-			      content.innerHTML="An unknown error occurred."
+			      content.innerHTML="An unknown error occurred.";
 			      break;
 		    }
-		})
+		});
 	}
+
+	function showPosition(){
+		//判断浏览器是否支持地理定位		
+		if (window.navigator.geolocation) {
+			/**
+				* 第一个参数：定位成功后执行的函数
+				* 第二个参数：获取用户位置失败时执行的函数，用于错误处理
+				* 第三个参数：PositionOptions，地理定位信息设置选项 
+				* {enableHighAccuracy: true,timeoout: 175000, maximumAge: 75000}
+				*- enableHighAccuracy 开启高精度定位，默认 false 
+				*- timeout 获取用户位置信息的最长等待时间，指网络请求时间，毫秒 
+				*- maximumAge 允许用户将一定时间内缓存的位置信息快速返回给 Web 应用，默认 0，毫秒
+			*/
+			window.navigator.geolocation.getCurrentPosition(showPosition,showError);
+		}else{
+			conten.innerHTML = '您的浏览器不支持地理定位';
+		}
+
+		////回调函数传入一个 position 对象，就是获取到的位置信息。
+		function showPosition(position){
+			//十进制数的纬度数据
+			var lat = position.coords.latitude;
+			//十进制数的经度数据
+			var long = position.coords.longitude;
+			content.innerHTML = 'Latitude:'+lat + ' Longitude :'+long;
+		}
+
+		//容错处理的回调函数会传入一个 PositionError 对象作为参数 即error
+		function showError(error){
+			switch(error.code){
+			    case error.PERMISSION_DENIED:
+			      //用户不允许地理定位
+			      content.innerHTML="User denied the request for Geolocation.";
+			      break;
+			    case error.POSITION_UNAVAILABLE:
+			      //无法获取当前位置
+			      content.innerHTML="Location information is unavailable.";
+			      break;
+			    case error.TIMEOUT:
+			      //操作超时
+			      content.innerHTML="The request to get user location timed out.";
+			      break;
+			    case error.UNKNOWN_ERROR:
+			      //未知错误
+			      content.innerHTML="An unknown error occurred.";
+			      break;
+			}
+		}
+	}
+
 </script>
-<body>
-	<div id="content"></div>
-	<button onclick="getLocation()">点我获取位置信息</button>
 </body>
 </html>
