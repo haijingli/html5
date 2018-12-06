@@ -9,27 +9,45 @@
 			padding: 0px;
 			background-color: #F0F0F0;
 			font-family:"微软雅黑";
-			font-size: 20px;
+			font-size: 22px;
 		}
 
 		.content{
-			width: 600px;
+			width: 560px;
 			margin:50px auto;
 			border: 1px solid #2E2D2D;
 			padding: 10px 30px;
 		}
 
+		.title{
+			position: relative;
+			top:-26px;
+			left: 0px;
+			background-color: #F0F0F0;
+			z-index: 1;
+			font-size: 28px;
+		}
+
 		label{
 			line-height: 30px;
 			display: block;
-
+			margin-bottom:10px;
 		}
 		
 		input{
 			font-size: 20px;
-			line-height: 30px;
+			line-height: 40px;
 			width: 100%;
 			margin-bottom: 10px;
+		}
+
+		.btn{
+			width: 49%;
+			height: 40px;
+			background-color: #1EB24E;
+			margin: 10px auto;
+			color:white;
+			font-size: 20px;
 		}
 
 
@@ -37,12 +55,55 @@
 </head>
 <body>
 	<div class="content">
+		<span class="title">学生档案</span>
 		<label>姓名：</label>
-		<input type="text" name="name" placeholder="请输入姓名">
+		<input type="text" name="name" autofocus="autofocus" placeholder="请输入姓名">
 		<label>性别:</label>
-		<input type="text" name="name" placeholder="请输入性别">
+		<input type="text" name="sex" placeholder="请输入性别">
 		<label>年龄：</label>
-		<input type="text" name="name" placeholder="请输入年龄">
+		<input type="text" name="age" placeholder="请输入年龄">
+		<button class="btn btn_save">保存</button>
+		<button class="btn btn_reset">重置</button>
 	</div>
+
+	<script type="text/javascript">
+		var btnSave = document.querySelector('.btn_save');
+		btnSave.onclick = function(){
+			var name = document.querySelector('input[name=name]').value;
+			var sex = document.querySelector('input[name=sex]').value;
+			var age  = document.querySelector('input[name=age]').value;
+
+			//console.log(name);
+
+			var user = new Object();
+			user.name = name;
+			user.sex = sex;
+			user.age = age;
+
+			var arr;
+
+			if(localStorage.getItem("users")){
+				arrStr = localStorage.getItem("users");
+				arr = JSON.parse(arrStr);
+				//alert(typeof arr);
+				//alert(arr instanceof Array);
+			}else{
+				arr = new Array();
+			}
+			arr.push(user);	
+			var str = JSON.stringify(arr);
+			localStorage.setItem("users",str);
+
+			alert("保存成功");
+		}
+
+		var btnReset = document.querySelector('.btn_reset');
+		btnReset.onclick = function(){
+			document.querySelector('input[name=name]').value = '';
+			document.querySelector('input[name=sex]').value = '';
+			document.querySelector('input[name=age]').value = '';
+		}
+
+	</script>
 </body>
 </html>
