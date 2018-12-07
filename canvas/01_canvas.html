@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+	<script type="text/javascript">
+		//获取画布
+		var c = document.querySelector('canvas');
+		//获取绘图对象
+		var ctx = c.getContext("2d");
+
+		//画一条直线 1
+		//开始位置
+		ctx.moveTo(50,50);
+		//结束位置
+		ctx.lineTo(300,50);
+		//线的颜色
+		ctx.strokeStyle = 'red';
+		//设置线的宽度
+		//ctx.lineWidth = 10;
+		//绘制 画线
+		ctx.stroke();
+
+		//重置路径
+		ctx.beginPath();
+
+		//再画一条线 2
+		//开始位置
+		ctx.moveTo(50,100);
+		//结束位置
+		ctx.lineTo(300,100);
+		//线的颜色
+		ctx.strokeStyle = 'green';
+		//设置线的宽度
+		//ctx.lineWidth = 10;
+		//绘制 画线
+		ctx.stroke();
+
+		//画两条直线，不同的颜色，如果两条直线都分别调用了stroke方法，则第一条直线会被绘制两次，颜色会出现叠加
+		//这时可以在第二条直线绘制时调用一次stroke方法，存在的问题，第一条线也变为绿色
+		//解决方法：第一条直线绘制结束后，调用beginPath()方法重置路径，就可达到画两条不同颜色的直线的效果
+
+	</script>
+</body>
+</html>

@@ -72,36 +72,36 @@
 		}else{
 			conten.innerHTML = '您的浏览器不支持地理定位';
 		}
+	}
 
-		////回调函数传入一个 position 对象，就是获取到的位置信息。
-		function showPosition(position){
-			//十进制数的纬度数据
-			var lat = position.coords.latitude;
-			//十进制数的经度数据
-			var long = position.coords.longitude;
-			content.innerHTML = 'Latitude:'+lat + ' Longitude :'+long;
-		}
+	//回调函数传入一个 position 对象，就是获取到的位置信息。
+	function showPosition(position){
+		//十进制数的纬度数据
+		var lat = position.coords.latitude;
+		//十进制数的经度数据
+		var long = position.coords.longitude;
+		content.innerHTML = 'Latitude:'+lat + ' Longitude :'+long;
+	}
 
-		//容错处理的回调函数会传入一个 PositionError 对象作为参数 即error
-		function showError(error){
-			switch(error.code){
-			    case error.PERMISSION_DENIED:
-			      //用户不允许地理定位
-			      content.innerHTML="User denied the request for Geolocation.";
-			      break;
-			    case error.POSITION_UNAVAILABLE:
-			      //无法获取当前位置
-			      content.innerHTML="Location information is unavailable.";
-			      break;
-			    case error.TIMEOUT:
-			      //操作超时
-			      content.innerHTML="The request to get user location timed out.";
-			      break;
-			    case error.UNKNOWN_ERROR:
-			      //未知错误
-			      content.innerHTML="An unknown error occurred.";
-			      break;
-			}
+	//容错处理的回调函数会传入一个 PositionError 对象作为参数 即error
+	function showError(error){
+		switch(error.code){
+		    case error.PERMISSION_DENIED:
+		      //用户不允许地理定位
+		      content.innerHTML="User denied the request for Geolocation.";
+		      break;
+		    case error.POSITION_UNAVAILABLE:
+		      //无法获取当前位置
+		      content.innerHTML="Location information is unavailable.";
+		      break;
+		    case error.TIMEOUT:
+		      //操作超时
+		      content.innerHTML="The request to get user location timed out.";
+		      break;
+		    case error.UNKNOWN_ERROR:
+		      //未知错误
+		      content.innerHTML="An unknown error occurred.";
+		      break;
 		}
 	}
 

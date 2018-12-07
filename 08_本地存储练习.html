@@ -9,14 +9,15 @@
 			padding: 0px;
 			background-color: #F0F0F0;
 			font-family:"微软雅黑";
-			font-size: 22px;
+			font-size: 22px;			
 		}
 
 		.content{
 			width: 560px;
-			margin:50px auto;
+			margin:50px 30px;
 			border: 1px solid #2E2D2D;
 			padding: 10px 30px;
+			float:left;
 		}
 
 		.title{
@@ -50,6 +51,34 @@
 			font-size: 20px;
 		}
 
+		.list{
+			width: 560px;
+			float: right;
+			margin:50px 30px;
+			padding: 10px 10px;
+			border: 1px solid #2E2D2D;
+		}
+
+		.userTable{
+			width: 100%;
+			border: 1px solid #CCC;
+			border-collapse:collapse;
+		}
+
+		caption{
+			font-weight: blod;
+			font-size: 28px;
+			margin-bottom: 10px;
+		}
+
+		.userTable tr{
+			 border: 1px solid #CCC;
+		}
+
+		.userTable th,td{
+			text-align: center;
+			border: 1px solid #CCC;
+		}
 
 	</style>
 </head>
@@ -65,8 +94,14 @@
 		<button class="btn btn_save">保存</button>
 		<button class="btn btn_reset">重置</button>
 	</div>
+	<div class="list">
+		<table class="userTable">
+		</table>
+	</div>
 
 	<script type="text/javascript">
+		loadUserList();
+		//保存学员信息
 		var btnSave = document.querySelector('.btn_save');
 		btnSave.onclick = function(){
 			var name = document.querySelector('input[name=name]').value;
@@ -74,7 +109,7 @@
 			var age  = document.querySelector('input[name=age]').value;
 
 			//console.log(name);
-
+			//创建user对象，并为属性赋值
 			var user = new Object();
 			user.name = name;
 			user.sex = sex;
@@ -82,26 +117,81 @@
 
 			var arr;
 
+			//检测本地存储中是否已存在key值
 			if(localStorage.getItem("users")){
+				//根据key值获取vlaue
 				arrStr = localStorage.getItem("users");
+				//值以字符串的方式进行存储，将其转换为对象
 				arr = JSON.parse(arrStr);
 				//alert(typeof arr);
 				//alert(arr instanceof Array);
 			}else{
+				//本地存储中没有键的时候，创建存储数组
 				arr = new Array();
 			}
+			//将对象内容追加到数组中
 			arr.push(user);	
+			//将数组对象转换为字符串对象
 			var str = JSON.stringify(arr);
+			//保存用户对象
 			localStorage.setItem("users",str);
 
-			alert("保存成功");
-		}
+			loadUserList();
 
+			alert("保存成功");
+		};
+
+		//内容重置
 		var btnReset = document.querySelector('.btn_reset');
 		btnReset.onclick = function(){
 			document.querySelector('input[name=name]').value = '';
 			document.querySelector('input[name=sex]').value = '';
 			document.querySelector('input[name=age]').value = '';
+		};
+
+		//当同源页面的某个页面修改了localStorage,其余的同源页面只要注册了storage事件，就会触发
+		//很容易犯的错误是，在同一个网页修改本地存储，又在同一个网页监听，这样是没有效果的。
+		//因此以下代码不能执行		
+		window.addEventListener('storage',function(event){
+			//在 Web Storage 区域更新后运行的脚本。本地存储发生变化后刷新学生列表
+			alert();
+			//1、event.key:这个是 被修改的数据键值
+			//2、event.oldValue :  被修改前的值
+			//3、enent.newValue:被修改后的值
+			
+			/*if(event.key == "users"){
+				console.log(event.newValue);
+				loadUserList();
+			}*/
+		});
+
+		//加载本地存储数据，显示学生列表
+		function loadUserList(){
+			var arrStr = localStorage.getItem("users");
+			var arr = JSON.parse(arrStr);
+			if(arr instanceof Array && arr.length >0){
+				var str = '<caption>学生信息</caption>'+
+							'<tr>'+
+								'<th>序号</th>'+
+								'<th>姓名</th>'+
+								'<th>性别</th>'+
+								'<th>年龄</th>'+
+								'<th>操作</th>'+
+							'</tr>';				
+				for (var i = 0; i <= arr.length - 1; i++) {
+				  var user =  arr[i];
+				  str =  str +
+					'<tr>'+
+					'<td>'+(i+1)+'</td>'+
+					'<td>'+user.name+'</td>'+
+					'<td>'+user.sex+'</td>'+
+					'<td>'+user.age+'</td>'+
+					'<td><a href="javascript:void(0);">删除</a></td>'+
+					'</tr>';
+				};
+
+				document.querySelector('.userTable').innerHTML = str;
+			}
 		}
 
 	</script>
