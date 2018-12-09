@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画布平移 translate</title>
+	<style>
+		canvas{
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" width="400"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//从画布原点开始画一条直线
+		ctx.moveTo(0,0);
+		ctx.lineTo(200,0);
+		ctx.strokeStyle="blue";
+		ctx.stroke();
+
+		//重置路径
+		ctx.beginPath();
+
+		//从画布x坐标200，y坐标0的位置开始画一条直线，设置线宽为20
+		ctx.moveTo(200,0);
+		ctx.lineTo(400,0);
+		ctx.strokeStyle="blue";
+		ctx.lineWidth=20;
+		ctx.stroke();
+		//注意：当线宽为20的时候，（200,0），（400,0）坐标的位置对应线的横向中心轴线，
+		//即线的左上角坐标为（200,-10），左下角（200,10）
+
+		ctx.beginPath();
+
+		//画布原点平移，原点默认在画布左上角（0,0）的位置
+		ctx.translate(100,100);
+
+		//画和原点平移前坐标位置相同的直线，但是画布的原点平移了
+		ctx.moveTo(0,0);
+		ctx.lineTo(200,0);
+		ctx.lineWidth=1;
+		ctx.strokeStyle="green";
+		ctx.stroke();
+		ctx.beginPath();
+
+		ctx.moveTo(200,0);
+		ctx.lineTo(400,0);
+		ctx.strokeStyle="green";
+		ctx.lineWidth=20;
+		ctx.stroke();
+	</script>
+</body>
+</html>

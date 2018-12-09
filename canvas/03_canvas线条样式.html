@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 线条显示</title>
+	<style type="text/css">
+		canvas{
+			border:1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="300"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//lineCap设置或返回线条末端线帽的样式。
+		/*butt	默认。向线条的每个末端添加平直的边缘。
+		  round	向线条的每个末端添加圆形线帽。
+		  square向线条的每个末端添加正方形线帽。
+		  提示："round" 和 "square" 会使线条略微变长。
+		*/
+
+		//lineJoin设置或返回两条线相交时，所创建的拐角类型
+		/*
+			bevel	创建斜角。
+			round	创建圆角。
+			miter	默认。创建尖角。
+		*/
+
+		//绘制第1个大于号图形 >
+		ctx.moveTo(100,100);
+		ctx.lineTo(200,150);
+		ctx.lineTo(100,200);
+
+		ctx.lineCap = "butt";//默认 平直的边缘
+		ctx.lineJoin = "miter";//默认尖角
+
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = "red";
+		ctx.stroke();
+
+		ctx.beginPath();
+
+		//绘制第2个大于号图形 >
+		ctx.moveTo(250,100);
+		ctx.lineTo(350,150);
+		ctx.lineTo(250,200);
+
+		ctx.lineCap = "round";// 圆形线帽
+		ctx.lineJoin = "round";//圆角
+
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = "green";
+		ctx.stroke();
+
+		ctx.beginPath();
+
+		//绘制第3个大于号图形 >
+		ctx.moveTo(400,100);
+		ctx.lineTo(500,150);
+		ctx.lineTo(400,200);
+
+		ctx.lineCap = "square";//默认 正方形线帽
+		ctx.lineJoin = "bevel";//默认斜角
+
+		ctx.lineWidth = 10;
+		ctx.strokeStyle = "blue";
+		ctx.stroke();
+	</script>
+</body>
+</html>
