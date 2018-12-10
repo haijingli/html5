@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 非零环绕练习</title>
+</head>
+<body>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		drawPathRect(ctx,100,100,300,300);
+		//绘制三角形
+		ctx.moveTo(250,150);
+		ctx.lineTo(350,250);
+		ctx.lineTo(150,250);
+		ctx.closePath();
+
+		//绘制矩形
+		ctx.moveTo(200,250);
+		ctx.lineTo(300,250);
+		ctx.lineTo(300,350);
+		ctx.lineTo(200,350);
+		ctx.closePath();
+
+		//设置填充颜色和阴影
+		ctx.fillStyle = "#0D6EB8";
+		ctx.shadowColor = "gray";
+		ctx.shadowOffsetX = 5;
+		ctx.shadowOffsetY = 5;
+		//阴影的模糊级别
+		ctx.shadowBlur = 5;
+		ctx.fill();
+
+		//逆时针方向绘制矩形
+		function drawPathRect(ctx,x,y,w,h){
+			ctx.moveTo(x,y);
+			ctx.lineTo(x,y+h);
+			ctx.lineTo(x+w,y+h);
+			ctx.lineTo(x+w,y);
+			ctx.closePath();
+		}
+	</script>
+</body>
+</html>

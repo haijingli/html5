@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 非零环绕</title>
+</head>
+<body>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//设置填充颜色和阴影
+		ctx.fillStyle = "#0D6EB8";
+		ctx.shadowColor = "gray";
+		ctx.shadowOffsetX = 5;
+		ctx.shadowOffsetY = 5;
+		//阴影的模糊级别
+		ctx.shadowBlur = 5;
+
+		drawPathRect(ctx,100,100,300,200);
+		//顺时针绘制矩形,rect方法默认是顺时针方向绘制
+		ctx.rect(130,150,100,50);
+		ctx.fill();
+
+		ctx.beginPath();
+
+		ctx.fillStyle = "";
+
+		ctx.arc(185,350,50,0,Math.PI*2);
+		ctx.arc(185,350,30,0,Math.PI*2,true);
+		ctx.fill();
+
+		ctx.beginPath();
+
+		ctx.arc(340,350,50,0,Math.PI*2);
+		ctx.arc(340,350,30,0,Math.PI*2,true);
+		ctx.fill();
+
+		//逆时针方向绘制矩形
+		function drawPathRect(ctx,x,y,w,h){
+			ctx.moveTo(x,y);
+			ctx.lineTo(x,y+h);
+			ctx.lineTo(x+w,y+h);
+			ctx.lineTo(x+w,y);
+			ctx.lineTo(x,y);
+		}
+
+	</script>
+</body>
+</html>

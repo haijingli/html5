@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 绘制虚线</title>
+</head>
+<body>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		ctx.moveTo(100,100);
+		ctx.lineTo(600,100);
+
+		//绘制虚线，参数是一个数组（线长，空白长）
+		//ctx.setLineDash([10,10]);
+		//ctx.setLineDash([20,10]);
+		//按照线、空、线、空、线、空的格式，循环使用10,5,20这三个数进行填充
+		//例如：线10、空5、线20、空10、线5、空20...
+		ctx.setLineDash([10,5,20]);
+		//ctx.setLineDash([10,5,20,5]);
+		ctx.stroke();
+
+	</script>
+</body>
+</html>

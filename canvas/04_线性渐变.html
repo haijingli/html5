@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 线性渐变</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//创建线性渐变方案
+		//参数为起始位置的横纵坐标，终点位置的横纵坐标
+		var lgd = ctx.createLinearGradient(100,200,500,200);
+
+		//渐变颜色设置(渐变方案线条中的位置，颜色) 0代表开始位置，
+		//1代表结束位置，参数1只能介于0-1之间
+		lgd.addColorStop(0,"red");
+		lgd.addColorStop(0.5,"green");
+		lgd.addColorStop(1,"blue");
+
+		//将渐变方案给样式设置
+		ctx.strokeStyle = lgd;
+		ctx.moveTo(100,200);
+		ctx.lineTo(500,200);
+		ctx.lineWidth = 20;
+		ctx.stroke();
+	</script>
+</body>
+</html>

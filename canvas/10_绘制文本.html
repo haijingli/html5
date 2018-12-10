@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 绘制文本</title>
+	<style type="text/css">
+		canvas{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//绘制画布中心线
+	   	ctx.moveTo(300, 0);
+	  	ctx.lineTo(300, 400);
+	  	ctx.stroke();
+
+	  	ctx.beginPath();
+
+	  	ctx.moveTo(0, 200);
+	  	ctx.lineTo(600,200);
+	  	ctx.stroke();
+
+	  	//设置文本的字号和字体
+	  	ctx.font = "50px Arial";
+	  	//设置字体的水平对齐方式
+	  	ctx.textAlign = "center";
+	  	ctx.textBaseline = "middle";
+
+	  	//设置阴影的颜色
+	    ctx.shadowColor="red";
+	    //水平方向偏移量
+	    ctx.shadowOffsetX=15;
+	    ctx.shadowOffsetY=5;
+	    //阴影的模糊度
+	    ctx.shadowBlur=5;
+
+
+	  	ctx.strokeText("Hello World",300,200);
+	  	//ctx.fillText("Hello World",300,200);
+
+	</script>
+</body>
+</html>

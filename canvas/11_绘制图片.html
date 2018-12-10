@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 绘制图片</title>
+<style type="text/css">
+		canvas{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<p>要使用的图像</p>
+	<img src="../images/1.jpg">
+	<p>画布</p>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		var img = document.querySelector('img');
+		img.onload=function (){
+			/*
+			img	规定要使用的图像、画布或视频。
+			sx	可选。开始剪切的 x 坐标位置。
+			sy	可选。开始剪切的 y 坐标位置。
+			swidth	可选。被剪切图像的宽度。
+			sheight	可选。被剪切图像的高度。
+			x	在画布上放置图像的 x 坐标位置。
+			y	在画布上放置图像的 y 坐标位置。
+			width	可选。要使用的图像的宽度。（伸展或缩小图像）
+			height	可选。要使用的图像的高度。（伸展或缩小图像）
+			*/
+			//drawImage(img,x,y)
+			//ctx.drawImage(img,10,10);
+
+			//实现图片的缩放
+			//ctx.drawImage(img,10,10,400,200);
+
+			//实现图片的裁剪
+			ctx.drawImage(img,100,100,400,200,10,10,400,200);
+		}
+
+	</script>
+	
+</body>
+</html>
