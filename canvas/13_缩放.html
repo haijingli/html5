@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 缩放scale</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+</body>
+<script type="text/javascript">
+	var c = document.querySelector('canvas');
+	var ctx = c.getContext("2d");
+
+	ctx.strokeRect(5,5,20,10);
+	ctx.scale(2,2);
+	ctx.strokeRect(5,5,20,10);
+	ctx.scale(2,2);
+	ctx.strokeRect(5,5,20,10);
+	ctx.scale(2,2);
+	ctx.strokeRect(5,5,20,10);
+
+	//ctx.stroke();
+</script>
+</html>
