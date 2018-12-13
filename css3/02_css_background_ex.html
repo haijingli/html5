@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 background</title>
+	<style type="text/css">
+		div{
+			width: 25%;
+			height: 200px;
+			float: left;
+			border:20px dashed #A8A7A4;
+			background-color: green;
+			background: url(../images/4.jpg) no-repeat;
+			padding: 20px;
+			color: red;
+			margin: 10px;
+		}
+
+		p{
+			text-align: center;
+			vertical-align: middle;
+			color: red;
+			font-size: 30px;
+		}
+
+		#d1{
+			background-origin: border-box;
+		} 
+
+		#d2{
+			background-origin: padding-box;
+		} 
+
+		#d3{
+			background-origin: content-box;
+		}
+
+		#c1{
+			background-origin: border-box;
+			background-clip: border-box;
+		} 
+
+		#c2{
+			background-clip: padding-box;
+		} 
+
+		#c3{
+			background-clip: content-box;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1">
+		我是测试文本，文字内容区域，不用太在意我，重点看图片的位置变化
+		<p>background-origin: border-box;</p>
+	</div>
+
+	<div id="d2">
+		我是测试文本，我是测试文本，不用太在意我，重点看图片的位置变化
+		<p>background-origin: padding-box;</p>
+	</div>
+
+	<div id="d3">
+		我是测试文本，我是测试文本，不用太在意我，重点看图片的位置变化
+		<p>background-origin: content-box;</p>
+	</div>
+
+	<div id="c1">
+		我是测试文本，我是测试文本，不用太在意我，重点看图片的位置变化
+		<p>background-clip: border-box;</p>
+	</div>
+	
+	<div id="c2">
+		我是测试文本，我是测试文本，不用太在意我，重点看图片的位置变化
+		<p>background-clip: padding-box;</p>
+	</div>
+	<div id="c3">
+		我是测试文本，我是测试文本，不用太在意我，重点看图片的位置变化
+		<p>background-clip: content-box;</p>
+	</div>
+</body>
+</html>

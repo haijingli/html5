@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 边框图片</title>
+	<style type="text/css">
+		div{
+			width: 300px;
+			height: 200px;
+			background-color:blue;
+			border:20px solid red;
+			border-image-source: url(../images/border_image_5.png);
+			border-image-slice: 19;
+			/*拉伸图像来填充区域*/
+			/*border-image-repeat: stretch;*/
+			/*平铺（重复）图像来填充区域。可能与四个角的图像存在重合的部分*/
+			/*border-image-repeat: repeat;*/
+			/*如果无法完整平铺所有图像，则对图像进行缩放以适应区域。推荐使用这个值*/
+			border-image-repeat: round;
+			
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
