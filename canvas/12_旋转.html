@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 旋转rotate</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="800" height="600"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+
+		//旋转是以坐标系的原点（0，0）为圆心进行的顺时针旋转。所以，在使用rotate()之前，通常需要配合使用translate()平移坐标系，确定旋转的圆心。即，旋转变换通常搭配平移变换使用的。
+
+		//最后一点需要注意的是，Canvas是基于状态的绘制，所以每次旋转都是接着上次旋转的基础上继续旋转，所以在使用图形变换的时候必须搭配save()与restore()方法，一方面重置旋转角度，另一方面重置坐标系原点。
+		ctx.save();
+		ctx.translate(100,100);
+		ctx.fillRect(0,0,100,100);
+		
+
+		ctx.rotate(Math.PI/9);
+		ctx.fillStyle = "blue";
+		ctx.fillRect(0,0,100,100);
+		ctx.restore();
+	</script>	
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas 练习</title>
+	<style type="text/css">
+		canvas{
+			border:1px solid black;
+		}
+	</style>
+</head>
+<body>
+	<canvas width="600" height="400"></canvas>
+	<script type="text/javascript">
+		var c = document.querySelector('canvas');
+		var ctx = c.getContext("2d");
+		var w = c.width;
+		var h = c.height;
+
+		drawGrid(ctx,w,h);
+		drawCoordinateAxis(ctx,w,h);
+		drawLineChart(ctx,w,h);
+
+		//绘制网格线
+		function drawGrid(ctx,w,h){
+			var step = 20;		
+			
+			//绘制横向网格
+			for (var i = 0; i < h/20;i++) {
+				ctx.beginPath();
+				ctx.moveTo(0,step * i);
+				ctx.lineTo(w,step * i);
+				ctx.strokeStyle = "#E6E6E6";
+				ctx.stroke();
+			};
+
+			//绘制纵向网格
+			for (var i = 0; i < w/20;i++) {
+				ctx.beginPath();
+				ctx.moveTo(step * i,0);
+				ctx.lineTo(step * i,h);
+				ctx.strokeStyle = "#E6E6E6";
+				ctx.stroke();
+			};
+		}
+
+		//绘制坐标轴
+		function drawCoordinateAxis(ctx,w,h){
+
+			//绘制坐标轴的箭头
+			ctx.fillStyle = "blue";
+			ctx.moveTo(20,20);
+			ctx.lineTo(25,30);
+			ctx.lineTo(15,30);
+			ctx.closePath();
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.moveTo(w-30,h-25);
+			ctx.lineTo(w-20,h-20);
+			ctx.lineTo(w-30,h-15);
+			ctx.closePath();			
+			ctx.fill();
+
+			//绘制x轴、y轴和原点文本
+			//设置文本的字号和字体
+	  	    ctx.font = "14px Arial";
+	  	    ctx.fillStyle = "red";
+			ctx.fillText("x",w-15,h-5);
+
+			ctx.fillText("y",5,25);
+
+			ctx.fillText("(0,0)",5,h-5);
+
+			ctx.save();
+			ctx.beginPath();
+			ctx.translate(20,h-20);
+			ctx.rotate(3*Math.PI/2)
+			ctx.moveTo(0,0);
+			ctx.lineTo(h-40,0);
+			ctx.lineTo(0,0);
+			ctx.lineTo(0,w-40);
+			ctx.strokeStyle = "blue";
+			ctx.stroke();
+
+			ctx.restore();
+		}
+
+		//绘制随机折线图
+		function drawLineChart(ctx,w,h){
+			ctx.beginPath();
+			//生成折线的拐点个数,最少5个，最多10个
+			var num = Math.floor(Math.random()*6) + 5;
+
+			var x = w-80;
+			var y = h-80;
+
+			
+			//随机生成坐标轴范围内的横纵坐标数字
+			for (var i =0; i < num -1; i++) {
+				var randomX = Math.random()*x+40;
+				var randomY = Math.random()*y+40;
+				if(i==0){
+					ctx.moveTo(randomX,randomY);
+				}else{
+					ctx.lineTo(randomX,randomY);
+				}
+				ctx.save();
+				//坐标原点平移
+				ctx.translate(randomX,randomY);
+				//绘制矩形点
+				ctx.fillStyle = "red";
+				ctx.fillRect(-5,-5,10,10);
+				ctx.restore();
+			}
+			ctx.strokeStyle = "red";
+			ctx.stroke();
+
+		}
+	</script>
+</body>
+</html>

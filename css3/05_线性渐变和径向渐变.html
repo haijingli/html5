@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 background线性渐变和径向渐变</title>
+	<style type="text/css">
+		.lgd{
+			width:600px;
+			height: 100px;
+			/*
+			线性渐变
+			方向（to bottom、to top、to right、to left、to bottom right，等等）,颜色,颜色...
+			background: linear-gradient(direction, color-stop1, color-stop2, ...);
+			
+			角度,颜色,颜色...
+			background: linear-gradient(angle, color-stop1, color-stop2);
+			0deg 将创建一个从下到上的渐变，90deg 将创建一个从左到右的渐变。
+			*/
+
+			/*background: linear-gradient(to top,green,yellow);*/
+			/*默认方向，从上到下*/
+			/*background: linear-gradient(green,yellow);*/
+			/*background: linear-gradient(135deg,green 10%,green 20%,yellow 20%,yellow 40%,green 40%,green 60%,yellow 60%,yellow 80%,green 80%,green 100%);*/
+			background: linear-gradient(90deg,red,orange,yellow,green,blue,indigo,violet);
+		}
+
+		.rgd{
+			width: 300px;
+			height:300px;
+			/*
+				径向渐变
+				可以指定渐变的中心、形状（圆形或椭圆形）、大小。默认情况下，渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落）。
+				background: radial-gradient(center, shape size, start-color, ..., last-color);
+			*/
+			/*background: radial-gradient(100px at center,green,yellow);*/
+			/*background: radial-gradient(100px at center,green 20%,yellow 40%,red 60%);*/
+			background: radial-gradient(300px at 150px 150px,red 5%,orange 5%,orange 10%,yellow 10%,yellow 15%,green 15%,green 25%,blue 25%,blue 30%,indigo 30%,indigo 35%,violet 35%,violet 40%);
+		}
+
+	</style>
+</head>
+<body>
+	<h2>线性渐变</h2>
+	<div class="lgd"></div>
+
+	<h2>径向渐变</h2>
+	<div class="rgd"></div>
+</body>
+</html>
