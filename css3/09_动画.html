@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 动画</title>
+	<style type="text/css">
+		.box{
+			width: 0;
+			height: 0;
+			border-top: 100px solid red;
+			border-right: 100px solid green;
+			border-bottom: 100px solid blue;
+			border-left: 100px solid pink;
+			border-radius: 50%;
+
+			/*要使用的动画的名字，属性为 @keyframes 动画规定的名称。*/
+			animation-name: rotate;
+			animation-duration: 3s;/*完成动画所花费的时间*/
+			animation-timing-function: linear;/*规定动画的速度曲线。默认ease：动画以低速开始，然后加快，在结束前变慢。*/
+			animation-delay: 1s;/*定义动画开始前等待的时间*/
+			/*animation-iteration-count: infinite;*//*定义动画被播放的次数，n|infinite（无限次）*/
+			animation-iteration-count: 2;/*定义动画被播放的次数，n|infinite（无限次）*/
+			animation-direction: alternate;/*属性定义是否应该轮流反向播放动画。 normal(默认)|alternate;*/
+
+			/*
+			规定动画在播放之前或之后，其动画效果是否可见。
+			animation-fill-mode : none | forwards | backwards | both;
+			none	不改变默认行为。
+			forwards	当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。
+			backwards	在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。
+			both	向前和向后填充模式都被应用。
+			*/
+			animation-fill-mode: forwards;/*使用forwards属性时，动画播放的次数不能是无限次，因为无限次就不存在动画完成的状态了*/
+
+			/*
+			animation简写形式
+			animation: name duration timing-function delay iteration-count direction;
+			*/
+
+		}
+
+		/*	设置鼠标移动到元素上时的动画效果*/
+		.box:hover{
+			animation-play-state: paused;/*动画暂停，移开鼠标继续运行*/
+		}
+		
+		/*通过 @keyframes 规则，您能够创建动画。
+		@keyframes animationname {
+			keyframes-selector {css-styles;}
+		}
+		*/
+		@keyframes rotate{
+			from { transform: rotateZ(0deg);	}/*相当于0% {}*/
+			to {transform: rotateZ(360deg);		}/*相当于100%{}*/
+		}
+
+		@keyframes run{
+			0% {}
+			20%{}
+			50%{}
+			100%{}
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 过渡</title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: green;
+			margin: 100px auto;
+			font-size: 50px;
+			text-align: center;
+			border-radius: 10px;
+			/*transition-property 属性规定应用过渡效果的 CSS 属性的名称。（当指定的 CSS 属性改变时，过渡效果将开始）。
+			transition-property: none|all|property;
+			*/
+			transition-property: all;
+			/*属性规定完成过渡效果需要花费的时间（以秒或毫秒计）*/
+			transition-duration: 5s;
+			/*属性规定过渡效果的速度曲线。*/
+			transition-timing-function: linear;
+			/*规定在过渡效果开始之前需要等待的时间，以秒或毫秒计。*/
+			/*transition-delay: 1s;*/
+		}
+
+		.box:hover{
+			transform: rotate(360deg) scale(2,2);
+		}
+	</style>
+</head>
+<body>
+	<div class="box">国</div>
+</body>
+</html>

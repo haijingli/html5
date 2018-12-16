@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css 3d转换</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			border:1px solid gray;
+			margin: 50px auto;
+			perspective: 1000px;
+		}
+
+		.area{
+			width: 200px;
+			height: 200px;
+			margin: 0px auto;
+			background-color: orange;
+			font-size: 100px;
+			text-align: center;
+			/*
+			transform-style属性规定如何在 3D 空间中呈现被嵌套的元素。
+			flat|preserve-3d;
+			flat	子元素将不保留其 3D 位置。
+			preserve-3d	子元素将保留其 3D 位置。
+			*/
+			transform-style:preserve-3d;
+		}
+		.box:hover .area{
+			/*translateX：沿着X轴，从左向右移动*/
+			/*transform: translateX(50px);*/
+			/*translateY：沿着Y轴,从上向下移动*/
+			/*transform: translateY(50px);*/
+			/*translateZ：以方框中心为原点，变大*/
+			/*transform: translateZ(30px);*/
+			/*transform: translate3d(50px,50px,100px);*/
+
+			/*沿着X轴，从下向上旋转 rotateX(a)函数功能等同于rotate3d(1,0,0,a)*/
+			/*transform: rotateX(30deg);*/
+			/*沿着Y轴，从左向右旋转 rotateY(a)函数功能等同于rotate3d(0,1,0,a)* /
+			/*transform: rotateY(30deg);*/
+			/*以方框中心为原点，顺时针旋转 rotateZ(a)函数功能等同于rotate3d(0,0,1,a)*/
+			/*transform: rotateZ(30deg);*/
+			/*
+			rotate3d(x,y,z,a)
+			x：是一个0到１之间的数值，主要用来描述元素围绕X轴旋转的矢量值；
+			y：是一个０到１之间的数值，主要用来描述元素围绕Y轴旋转的矢量值；
+			z：是一个０到１之间的数值，主要用来描述元素围绕Z轴旋转的矢量值；
+			a：是一个角度值，主要用来指定元素在3D空间旋转的角度，如果其值为正值，元素顺时针旋转，反之元素逆时针旋转。
+			*/
+			/*transform: rotate3d(.5,.5,.5,90deg);*/
+
+			/*transform: scaleX(2);*/
+			/*transform: scaleY(2);*/
+			/*scaleZ()函数单独使用时没有任何效果，需要配合其他的变形函数一起使用才会有效果。*/
+			/*transform: scaleZ(5) rotateX(45deg);*/
+
+			/*transform: scale3d(2,2,2) rotateX(45deg);*/
+
+
+			/*倾斜是二维变形，不能在三维空间变形。元素可能会在X轴和Y轴倾斜，然后转化为三维，但它们不能在Z轴倾斜。*/
+			/*transform: skewX(45deg);*/
+			transform: skewY(45deg);
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="area">国</div>
+	</div>
+</body>
+</html>
