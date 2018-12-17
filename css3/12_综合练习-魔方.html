@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3 综合练习 魔方</title>
+	<style type="text/css">
+		.box{
+			width: 300px;
+			width: 300px;
+			margin: 150px auto;
+			position: relative;
+			/*perspective: 1000px;*/
+			transform-style: preserve-3d;
+			animation:rotate 10s linear infinite alternate;
+		}
+
+		.box:hover{
+			animation-play-state: paused;
+		}
+		
+		ul{
+			width: 300px;
+			height: 300px;
+			margin:0;
+            padding:0;
+			list-style-type: none;
+			position: absolute;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			transform-style:preserve-3d;
+		}
+
+		.before{
+			background-color: transparent;
+			transform:translateZ(150px);
+		}
+
+		.behind{
+			background-color: transparent;
+			transform:translateZ(-150px) rotateY(180deg) ;
+		}
+
+		.left{
+			background-color: transparent;
+			transform: rotateY(-90deg) translateZ(150px);
+		}
+
+		.right{
+			background-color: transparent;
+			transform: rotateY(90deg) translateZ(150px);
+		}
+
+		.top{
+			background-color: transparent;
+			transform: rotateX(90deg) translateZ(150px);
+		}
+
+		.bottom{
+			background-color: transparent;
+			transform: rotateX(-90deg) translateZ(150px);
+		}
+
+		ul li{
+			width: 90px;
+			height: 90px;
+			border-radius: 20px;
+			font-size: 40px;
+			line-height: 90px;
+			text-align: center;
+		}
+
+		.before li{
+			background-color: green;
+		}
+
+		.behind li{
+			background-color: orange;
+		}
+
+		.left li{
+			background-color: blue;
+		}
+
+		.right li{
+			background-color: yellow;
+		}
+
+		.top li{
+			background-color: indigo;
+		}
+
+		.bottom li{
+			background-color: pink;
+		}
+
+		@keyframes rotate{
+			0%{
+				transform: rotate3d(0,0,0,30deg);
+			}
+
+			20%{
+				transform: rotate3d(.3,.4,.2,100deg);
+			}
+
+			40%{
+				transform: rotate3d(.4,.6,.2,-100deg);
+			}
+
+			60%{
+				transform: rotate3d(.6,1,.1,145deg);
+			}
+
+			80%{
+				transform: rotate3d(.6,.9,-0.2,100deg);
+			}
+
+			100%{
+				transform: rotate3d(-0.4,0.3,.2,135deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul class="before">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<ul class="behind">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<ul class="left">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<ul class="right">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<ul class="top">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<ul class="bottom">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+	</div>
+</body>
+</html>
