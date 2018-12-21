@@ -31,6 +31,8 @@
 			transform-style:preserve-3d;
 		}
 
+		/*注意：当使用rotate方法沿着坐标轴进行旋转时，旋转后其所在面的坐标轴也跟着旋转了*/
+
 		.before{
 			background-color: transparent;
 			transform:translateZ(150px);
@@ -42,12 +44,13 @@
 		}
 
 		.left{
-			background-color: transparent;
+			background-color: transparent;			
 			transform: rotateY(-90deg) translateZ(150px);
 		}
 
 		.right{
 			background-color: transparent;
+			/*沿着Y轴旋转后，坐标轴也跟着旋转了（x轴和z轴），z轴的方向也旋转了90度，变为原来x轴的方向了*/
 			transform: rotateY(90deg) translateZ(150px);
 		}
 
