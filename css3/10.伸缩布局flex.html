@@ -5,8 +5,8 @@
 	<title>css3 flex弹性（伸缩）布局</title>
 	<style type="text/css">
 		.box{
-			width: 400px;
-			height: 400px;
+			width: 460px;
+			height: 460px;
 			border:1px solid red;
 			/*
 				采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。
@@ -46,7 +46,7 @@
 				justify-content: flex-start | flex-end | center | space-between | space-around;
 			*/
 
-			justify-content: flex-start;/*默认，左对齐*/
+			justify-content: space-between;/*默认，左对齐*/
 			/*justify-content: flex-end;/*右对齐*/
 			/*justify-content: center;/*居中*/
 			/*justify-content: space-between;/*两端对齐，项目之间的间隔都相等。*/
@@ -80,7 +80,7 @@
 		}
 
 		.dv1{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: red;
 			font-size: 50px;
@@ -89,7 +89,7 @@
 		}
 
 		.dv2{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: orange;
 			font-size: 50px;
@@ -98,7 +98,7 @@
 		}
 
 		.dv3{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: yellow;
 			font-size: 50px;
@@ -107,7 +107,7 @@
 		}
 
 		.dv4{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: green;
 			font-size: 50px;
@@ -116,7 +116,7 @@
 		}
 
 		.dv5{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: blue;
 			font-size: 50px;
@@ -125,12 +125,17 @@
 		}
 
 		.dv6{
-			width: 100px;
+			width:24%;
 			height: 100px;
 			background-color: indigo;
 			font-size: 50px;
 			text-align: center;
 			line-height: 100px;
+		}
+		/* 补空div来让不满四个元素的行不按两端分散对齐 */
+		.itemempty {
+			height: 0px;
+			width: 24%;
 		}
 	</style>
 </head>
@@ -142,6 +147,10 @@
 		<div class="dv4">4</div>
 		<div class="dv5">5</div>
 		<div class="dv6">6</div>
+		<div class="itemempty"></div>
+		<div class="itemempty"></div>
+		<div class="itemempty"></div>
+		<div class="itemempty"></div>
 	</div>
 </body>
 </html>
