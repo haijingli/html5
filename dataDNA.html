@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/echarts/echarts4.2.1.min.js"></script>
+    <script src="./js/echarts/echarts-gl.js"></script>
+    <title>Document</title>
+    <style>
+        .bg{
+            background: linear-gradient(90deg, rgba(92, 101, 125, 1), rgba(42, 42, 83, 1))
+        }
+
+        .dz{
+            width: 400px;
+            height: 400px;
+            transform: rotateX(30deg) rotateY(45deg);
+            background: linear-gradient(90deg, rgba(126, 128, 124, 0.5), rgba(21, 41, 95, 0.5))
+        }
+
+        .basic{
+            width: 1200px;
+            height: 900px;
+            position:absolute;
+            left:20%;
+            bottom : 0%;
+        }
+
+        .standard{
+            width: 1000px;
+            height: 750px;
+            left:25%;
+            bottom : 30%;
+            position:absolute;
+        }
+
+        .merge{
+            width: 800px;
+            height: 600px;
+            left:30%;
+            bottom : 55%;
+            position:absolute;
+        }
+
+        .application{
+            width: 600px;
+            height: 450px;
+            left:35%;
+            bottom : 75%;
+            position:absolute;
+        }
+
+        .flow{
+            width: 1200px;
+            height: 940px;
+            left:20%;
+            bottom : 0%;            
+            position:absolute;
+            z-index: -1;
+        }
+    </style>
+    
+</head>
+<body class="bg">
+    <!-- <div class="dz">
+    </div> -->
+    <div id="basicChart" class="basic"></div>
+    <div id="standardChart" class="standard"></div>
+    <div id="mergeChart" class="merge"></div>
+    <div id="applicationChart" class="application"></div>
+    <div id="flowChart" class="flow"></div>
+    <script type="text/javascript" src="./js/dataNode.js"></script>
+    <script type="text/javascript" src="./js/dataDNA.js"></script>
+</body>
+</html>
